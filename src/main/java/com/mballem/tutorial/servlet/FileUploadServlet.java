@@ -1,7 +1,9 @@
 package com.mballem.tutorial.servlet;
 
 import com.mballem.tutorial.service.FileService;
-import org.apache.log4j.Logger;
+import com.mballem.tutorial.util.BaseDir;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -25,9 +27,9 @@ import java.nio.file.Path;
 )
 public class FileUploadServlet extends HttpServlet {
 
-    private static Logger logger = Logger.getLogger(FileUploadServlet.class);
+    private static Logger logger = LogManager.getLogger(FileUploadServlet.class);
 
-    private static final String BASE_DIR = "C:\\uploads";
+    private static final String BASE_DIR = BaseDir.PATH_ROOT;
 
     @Override
     protected void doPost(HttpServletRequest request,
