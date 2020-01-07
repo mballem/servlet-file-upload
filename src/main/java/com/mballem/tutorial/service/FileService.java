@@ -3,7 +3,8 @@ package com.mballem.tutorial.service;
 import com.mballem.tutorial.dao.FileDao;
 import com.mballem.tutorial.dao.IFileDao;
 import com.mballem.tutorial.entity.FileEntity;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.Part;
 import java.io.File;
@@ -20,7 +21,7 @@ import java.util.List;
 @SuppressWarnings("unchecked")
 public class FileService {
 
-    private static Logger logger = Logger.getLogger(FileService.class);
+    private static Logger logger = LogManager.getLogger(FileService.class);
 
     private String year;
     private String month;
@@ -37,7 +38,7 @@ public class FileService {
         Path path = Paths.get(baseDir, this.year, this.month);
 
         try {
-            if (Files.exists(path)) {
+            if (!Files.exists(path)) {
                 Files.createDirectories(path);
             }
         } catch (IOException e) {
