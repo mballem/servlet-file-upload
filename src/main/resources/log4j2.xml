@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <Console name="Console">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="ERROR">
+            <AppenderRef ref="Console"/>
+        </Root>
+        <logger name="com" level="TRACE">
+            <AppenderRef ref="Console"/>
+        </logger>
+        <logger name="com.journaldev" level="TRACE">
+            <AppenderRef ref="Console"/>
+        </logger>
+        <logger name="net" level="ERROR">
+            <AppenderRef ref="Console"/>
+        </logger>
+        <logger name="net.journaldev" level="ERROR">
+            <AppenderRef ref="Console"/>
+        </logger>
+    </Loggers>
+</Configuration>
